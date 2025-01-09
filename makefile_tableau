@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-W -Wall -Werror
+
+prog: tableaud.o testTableau.o 
+	$(CC) tableaud.o testTableau.o -o prog -lm
+
+tableaud.o: tableaud.c tableaud.h 
+	$(CC) -c $(CFLAGS) tableaud.c
+
+testTableau.o: testTableau.c tableaud.h 
+	$(CC) -c $(CFLAGS) testTableau.c
+
+clear:
+	rm -f tableaude.o testTableau.o prog

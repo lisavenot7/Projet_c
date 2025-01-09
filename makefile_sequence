@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-W -Wall -Werror
+
+prog: sequence.o testSequence.o hash_x86_64.o list_x86_64.o
+	$(CC) sequence.o testSequence.o hash_x86_64.o list_x86_64.o -o prog -lm
+
+sequence.o: sequence.c sequence.h 
+	$(CC) -c $(CFLAGS) sequence.c
+
+testSequence.o: testSequence.c sequence.h 
+	$(CC) -c $(CFLAGS) testSequence.c
+
+clear:
+	rm -f sequence.o testSequence.o prog
